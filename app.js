@@ -49,7 +49,7 @@ app.post("/", function(req, res){
         
                 res.setHeader('Content-Type', 'text/html');
                 res.write(`<img src=${imageURL} alt="weather icon" />`);
-                res.write(`<p>The weather is currently <strong>${description}</strong></p>`);
+                res.write(`<p>The weather in ${city} is currently <strong>${description}</strong></p>`);
                 res.write(`<h1>The temperature in ${city} is ${temp} degree ${unitName}</h1>`);
                 res.send();
             })
@@ -59,6 +59,6 @@ app.post("/", function(req, res){
 })
 
 
-app.listen(4000, function(){
+app.listen(process.env.PORT || 4000, function(){
     console.log("Weather app is running on port 4000.")
 })
